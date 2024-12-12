@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "axios"; 
 import { api } from '../enum/api';  // 從 enum 資料夾中導入 api.ts
 
 export const fetchAPI = {
@@ -6,9 +6,9 @@ export const fetchAPI = {
     async findAll() {
         try {
             const response = await axios.get(api.findAll);
-            return response.data; // 假设返回的数据结构符合要求
+            return response.data; // 假設返回的資料結構符合要求
         } catch (error) {
-            console.error('Error fetching all students:', error);
+            console.error('查詢所有學生時出錯:', error);
             throw error;
         }
     },
@@ -17,9 +17,9 @@ export const fetchAPI = {
     async insertOne(student: any) {
         try {
             const response = await axios.post(api.insertOne, student);
-            return response.data; // 假设返回的数据结构符合要求
+            return response.data; // 假設返回的資料結構符合要求
         } catch (error) {
-            console.error('Error inserting student:', error);
+            console.error('新增學生時出錯:', error);
             throw error;
         }
     },
@@ -28,9 +28,9 @@ export const fetchAPI = {
     async deleteById(id: string) {
         try {
             const response = await axios.delete(`${api.deleteById}/${id}`);
-            return response.data; // 假设返回的数据结构符合要求
+            return response.data; // 假設返回的資料結構符合要求
         } catch (error) {
-            console.error('Error deleting student:', error);
+            console.error('刪除學生時出錯:', error);
             throw error;
         }
     },
@@ -39,9 +39,9 @@ export const fetchAPI = {
     async updateNameByID(id: string, name: string) {
         try {
             const response = await axios.put(`${api.updateNameByID}/${id}`, { name });
-            return response.data; // 假设返回的数据结构符合要求
+            return response.data; // 假設返回的資料結構符合要求
         } catch (error) {
-            console.error('Error updating student name:', error);
+            console.error('更新學生姓名時出錯:', error);
             throw error;
         }
     }
@@ -55,7 +55,7 @@ export async function asyncPost(url: string, data: any): Promise<any> {
         const response = await axios.post(url, data);
         return response.data;
     } catch (error) {
-        console.error('Error with asyncPost:', error);
+        console.error('asyncPost 出錯:', error);
         throw error;
     }
 }
@@ -66,7 +66,7 @@ export async function asyncPut(url: string, data: any): Promise<any> {
         const response = await axios.put(url, data);
         return response.data;
     } catch (error) {
-        console.error('Error with asyncPut:', error);
+        console.error('asyncPut 出錯:', error);
         throw error;
     }
 }
@@ -77,7 +77,7 @@ export async function asyncDelete(url: string): Promise<any> {
         const response = await axios.delete(url);
         return response.data;
     } catch (error) {
-        console.error('Error with asyncDelete:', error);
+        console.error('asyncDelete 出錯:', error);
         throw error;
     }
 }
@@ -88,7 +88,7 @@ export async function asyncGet(api: string): Promise<any> {
         const res = await fetch(api);
         return await res.json();
     } catch (error) {
-        console.error('Error with asyncGet:', error);
+        console.error('asyncGet 出錯:', error);
         throw error;
     }
 }
